@@ -266,6 +266,17 @@ Collaboratively implemented and trained supervised learning models (Logistic Reg
 Integrated trained machine learning models into the Flask backend to enable real-time prediction.
 Participated in end-to-end testing, debugging, and project integration to ensure reliable application performance.
 
+Team Member 2
+Name : Bhargav Sai Raj Sanke
+
+My Contribution :
+Machine Learning Evaluation & Analytics
+
+Collaboratively developed the data preprocessing pipeline, including missing value handling, feature scaling, and train-test splitting.
+Collaboratively implemented and trained supervised learning models (Logistic Regression, SVM, Decision Tree, Random Forest, and Gradient Boosting) for heart disease risk prediction.
+Evaluated model performance using Accuracy, Precision, Recall, F1-score, ROC-AUC, and Confusion Matrix, and implemented KMeans and DBSCAN clustering with PCA visualization.
+Participated in end-to-end testing, debugging, and project integration to ensure reliable application performance.
+
 
 
 ---
