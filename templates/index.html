@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioVision | Patient Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-5xl mx-auto">
+        
+        <div class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4 flex justify-center items-center gap-3">
+                <span class="text-teal-600">🫀 Cardio</span>Vision
+            </h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto font-medium">
+                Coronary Heart Disease 10-Year Risk Prediction System
+            </p>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+            
+            <div class="bg-teal-600 px-8 py-4">
+                <h2 class="text-white font-semibold text-lg tracking-wide">Patient Data Intake Form</h2>
+            </div>
+
+            <form action="/predict" method="POST" class="p-8 md:p-10">
+                
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold text-slate-700 mb-6 border-b border-slate-100 pb-2 flex items-center gap-2">
+                        👤 Personal Details
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Gender</label>
+                            <select name="male" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Age</label>
+                            <input type="number" name="age" placeholder="e.g. 45" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Education Level (1-4)</label>
+                            <input type="number" name="education" min="1" max="4" placeholder="e.g. 2" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold text-slate-700 mb-6 border-b border-slate-100 pb-2 flex items-center gap-2">
+                        🚬 Lifestyle & Habits
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Current Smoker</label>
+                            <select name="currentSmoker" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all appearance-none cursor-pointer">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Cigarettes Per Day</label>
+                            <input type="number" name="cigsPerDay" placeholder="0 if non-smoker" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold text-slate-700 mb-6 border-b border-slate-100 pb-2 flex items-center gap-2">
+                        📋 Medical History
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">BP Medication</label>
+                            <select name="BPMeds" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all appearance-none cursor-pointer">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Previous Stroke</label>
+                            <select name="prevalentStroke" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all appearance-none cursor-pointer">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Hypertension</label>
+                            <select name="prevalentHyp" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all appearance-none cursor-pointer">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Diabetes</label>
+                            <select name="diabetes" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all appearance-none cursor-pointer">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold text-slate-700 mb-6 border-b border-slate-100 pb-2 flex items-center gap-2">
+                        🩸 Clinical Measurements
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Total Cholesterol (mg/dL)</label>
+                            <input type="number" name="totChol" placeholder="e.g. 200" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Systolic BP</label>
+                            <input type="number" name="sysBP" placeholder="e.g. 120" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Diastolic BP</label>
+                            <input type="number" name="diaBP" placeholder="e.g. 80" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">BMI</label>
+                            <input type="number" step="0.1" name="BMI" placeholder="e.g. 25.4" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Heart Rate (bpm)</label>
+                            <input type="number" name="heartRate" placeholder="e.g. 75" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Glucose (mg/dL)</label>
+                            <input type="number" name="glucose" placeholder="e.g. 90" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-between items-center mt-12 pt-8 border-t border-slate-100">
+                    <a href="/dashboard" class="order-2 sm:order-1 text-slate-500 hover:text-teal-600 font-semibold transition-colors duration-200 flex items-center gap-2">
+                        <span>📊</span> View Analytics Dashboard
+                    </a>
+                    
+                    <button type="submit" class="order-1 sm:order-2 w-full sm:w-auto px-10 py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200 text-lg flex items-center justify-center gap-2">
+                        <span>⚡</span> Predict Heart Disease Risk
+                    </button>
+                </div>
+
+            </form>
+        </div>
+        
+        <div class="text-center mt-8 text-slate-400 text-sm">
+            <p>Powered by Machine Learning • Confidential & Secure</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
