@@ -252,7 +252,19 @@ Target Variable:
 
 ---
 
-##  Authors
+##  Team Contibutions
+
+Team Member 1
+Name : Devubarki Pushya mithra
+
+Specific Contibutions:
+
+Machine Learning Development & Backend Integration:
+
+Collaboratively developed the data preprocessing pipeline, including missing value handling, feature scaling, and train-test splitting.
+Collaboratively implemented and trained supervised learning models (Logistic Regression, SVM, Decision Tree, Random Forest, and Gradient Boosting) for heart disease risk prediction.
+Integrated trained machine learning models into the Flask backend to enable real-time prediction.
+Participated in end-to-end testing, debugging, and project integration to ensure reliable application performance.
 
 
 
