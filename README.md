@@ -277,6 +277,14 @@ Collaboratively implemented and trained supervised learning models (Logistic Reg
 Evaluated model performance using Accuracy, Precision, Recall, F1-score, ROC-AUC, and Confusion Matrix, and implemented KMeans and DBSCAN clustering with PCA visualization.
 Participated in end-to-end testing, debugging, and project integration to ensure reliable application performance.
 
+### Team Member 3 — Web Application Development & Deployment
+Name : Sativada Karthik
+
+Collaboratively developed the data preprocessing pipeline, including missing value handling, feature scaling, and train-test splitting.
+Developed the Flask web application and designed responsive user interfaces using HTML and CSS, including the prediction page and analytics dashboard.
+Integrated preprocessing, trained models, evaluation results, and clustering visualizations into the web application for seamless deployment.
+Participated in end-to-end testing, debugging, and project integration to ensure reliable application performance.
+
 
 
 ---
